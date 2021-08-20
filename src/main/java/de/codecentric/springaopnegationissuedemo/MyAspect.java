@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyAspect {
 
-    @Around("execution(* *.*(..)) && !target(org.springframework.web.filter.GenericFilterBean)")
+    @Around("target(de.codecentric.springaopnegationissuedemo.SpringAopNegationIssueDemoApplication) && execution(* *.*(..)) && !target(org.springframework.web.filter.GenericFilterBean)")
     public Object intercept(ProceedingJoinPoint pjp) throws Throwable {
         return pjp.proceed();
     }
